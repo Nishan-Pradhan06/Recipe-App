@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/views/components/splash_button.dart';
 
+import '../components/chip.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -10,10 +12,26 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      body: const Column(
-        children: [
-          SplashButtonComponent(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SplashButtonComponent(),
+            SizedBox(
+              height: 80,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: chipTitles.map((title) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: ChipComponents(
+                      title: title,
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
