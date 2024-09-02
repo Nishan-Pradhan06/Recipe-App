@@ -1,16 +1,31 @@
-# recipe
+# Recipe App
 
-A new Flutter project.
+## About
 
-## Getting Started
+This project is a **Recipe App** developed as a challenge from [Kodaschool](https://kodaschool.com/challenges/recipe-app/64b7021e1da180dc30641136).
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Setup Instructions
+
+### Prerequisites
+
+Before setting up the project, ensure you have the following installed:
+
+- **Flutter**: Follow the [Flutter installation guide](https://flutter.dev/docs/get-started/install) to install Flutter and set up your environment.
+- **Dart**: Dart is included with Flutter.
+
+
+### Installation
+
+Once you have the project on your local machine, you need to fetch the required dependencies:
+
+1. **Install dependencies** by running the following command in the project directory:
+    ```bash
+    flutter pub get
+    ```
+
+---
+
+By following these steps, you will have the project set up and ready to run on your local machine. If you encounter any issues during the setup process, ensure that Flutter and Dart are correctly installed and configured by running `flutter doctor` in your terminal.
