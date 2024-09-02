@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe/views/components/bottom_navigator_bar.dart';
 import 'package:recipe/views/components/splash_button.dart';
 
 import '../components/chip.dart';
@@ -33,6 +34,7 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: const BottomNavigatorBarComponent(),
     );
   }
 }
