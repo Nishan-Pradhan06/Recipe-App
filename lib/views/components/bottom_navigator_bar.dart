@@ -1,82 +1,73 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:recipe/core/theme/colors.dart';
-import 'package:recipe/views/screen/saved_screen.dart';
-import '../screen/home_screen.dart';
-import '../screen/search_screen.dart';
+import '../../providers/bottom_navigator_providers.dart';
 
-class BottomNavigatorBarComponent extends StatefulWidget {
+class BottomNavigatorBarComponent extends StatelessWidget {
   const BottomNavigatorBarComponent({super.key});
-
-  @override
-  State<BottomNavigatorBarComponent> createState() =>
-      _BottomNavigatorBarComponentState();
-}
-
-class _BottomNavigatorBarComponentState
-    extends State<BottomNavigatorBarComponent> {
-  int myIndex = 0;
-
-  final List<Widget> screens = [
-    const HomeScreen(),
-    const SearchScreen(),
-    const SavedScreen(),
-  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: myIndex,
-        children: screens,
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: myIndex,
-        onTap: (index) {
-          setState(() {
-            myIndex = index;
-          });
+      body: Consumer<BottomNavigatorProviders>(
+        builder: (context, bottomNavProvider, child) {
+          return IndexedStack(
+            index: bottomNavProvider.currentIndex,
+            children: bottomNavProvider.screens,
+          );
         },
-        items: [
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/home.svg',
-              semanticsLabel: 'Home',
-              height: 24,
-              colorFilter: ColorFilter.mode(
-                myIndex == 0 ? AppColor.primary : Colors.grey,
-                BlendMode.srcIn,
+      ),
+      bottomNavigationBar: Consumer<BottomNavigatorProviders>(
+        builder: (context, provider, child) {
+          return BottomNavigationBar(
+            currentIndex: provider.currentIndex,
+            onTap: (index) {
+              provider.onBottomNavigatorTap(
+                  context, index); // Updated this line
+            },
+            items: [
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  'assets/icons/home.svg',
+                  semanticsLabel: 'Home',
+                  height: 24,
+                  colorFilter: ColorFilter.mode(
+                    provider.currentIndex == 0 ? AppColor.primary : Colors.grey,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                label: 'Home',
               ),
-            ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/search.svg',
-              semanticsLabel: 'Search',
-              height: 24,
-              colorFilter: ColorFilter.mode(
-                myIndex == 1 ? AppColor.primary : Colors.grey,
-                BlendMode.srcIn,
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  'assets/icons/search.svg',
+                  semanticsLabel: 'Search',
+                  height: 24,
+                  colorFilter: ColorFilter.mode(
+                    provider.currentIndex == 1 ? AppColor.primary : Colors.grey,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                label: 'Search',
               ),
-              
-            ),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/saved.svg',
-              semanticsLabel: 'Saved',
-              height: 24,
-              colorFilter: ColorFilter.mode(
-                myIndex == 2 ? AppColor.primary : Colors.grey,
-                BlendMode.srcIn,
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  'assets/icons/saved.svg',
+                  semanticsLabel: 'Saved',
+                  height: 24,
+                  colorFilter: ColorFilter.mode(
+                    provider.currentIndex == 2 ? AppColor.primary : Colors.grey,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                label: 'Saved',
               ),
-            ),
-            label: 'Saved',
-          ),
-        ],
+            ],
+          );
+        },
       ),
     );
   }
 }
+  

@@ -6,11 +6,14 @@ import 'package:recipe/views/screen/search_screen.dart';
 class BottomNavigatorProviders extends ChangeNotifier {
   int _currentIndex = 0;
   int get currentIndex => _currentIndex;
+  final List<Widget> screens = [
+    const HomeScreen(),
+    const SearchScreen(),
+    const SavedScreen(),
+  ];
+
   void onBottomNavigatorTap(BuildContext context, int index) {
-    if (_currentIndex != index) {
-      _currentIndex = index;
-     
-      notifyListeners();
-    }
+    _currentIndex = index;
+    notifyListeners();
   }
 }
