@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe/providers/chip_tap_providers.dart';
 import 'package:recipe/views/screen/splash_screen.dart';
-
 import 'providers/bottom_navigator_providers.dart';
 
 void main() {
