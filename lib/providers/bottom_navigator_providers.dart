@@ -9,32 +9,7 @@ class BottomNavigatorProviders extends ChangeNotifier {
   void onBottomNavigatorTap(BuildContext context, int index) {
     if (_currentIndex != index) {
       _currentIndex = index;
-      switch (index) {
-        case 0:
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const HomeScreen(),
-            ),
-          );
-          break;
-        case 1:
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const SearchScreen(),
-            ),
-          );
-          break;
-        case 2:
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const SavedScreen(),
-            ),
-          );
-          break;
-      }
+     
       notifyListeners();
     }
   }

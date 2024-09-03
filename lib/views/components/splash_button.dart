@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/core/theme/colors.dart';
-import 'package:recipe/views/screen/home_screen.dart';
+import '../screen/main_screen.dart';
 
 class SplashButtonComponent extends StatelessWidget {
   const SplashButtonComponent({
@@ -25,7 +25,7 @@ class SplashButtonComponent extends StatelessWidget {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const HomeScreen(),
+            builder: (context) => const MainScreen(),
           ),
         );
       },
