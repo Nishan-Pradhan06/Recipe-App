@@ -2,66 +2,45 @@ import '../../models/card_models.dart';
 
 final List<Recipe> recipes = [
   Recipe(
-    title: 'Fried potatoes',
+    title: 'Chiken burger',
     imageUrl:
-        'https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbGlmZW9mcGl4MDAwMDEtaW1hZ2VfMS1renhsdXd3ci5wbmc.png',
+        'https://www.chicken.ca/wp-content/uploads/2013/05/Moist-Chicken-Burgers-1180x580.jpg',
+    cookingTime: 20,
+    isSaved: true,
+  ),
+  Recipe(
+    title: 'Waffles',
+    imageUrl:
+        'https://www.sunset.com/wp-content/uploads/4_3_horizontal_inbody_900x506/brown-sugar-cornmeal-waffles-60141.jpg',
+    cookingTime: 20,
+    isSaved: true,
+  ),
+  Recipe(
+    title: 'Grilled beef meet',
+    imageUrl:
+        'https://nebraskastarbeef.com/wp-content/uploads/2022/09/52913995_m-scaled.jpg',
     cookingTime: 20,
     isSaved: true,
   ),
   Recipe(
     title: 'Fried potatoes',
     imageUrl:
-        'https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbGlmZW9mcGl4MDAwMDEtaW1hZ2VfMS1renhsdXd3ci5wbmc.png',
+        'https://images.squarespace-cdn.com/content/v1/624fa63d5ba99559345806e6/6f2ae64d-e4f9-497f-92b1-9a31a33f9186/EG9_EP37_Olive-Oil-Fried-Potatoes.jpg',
     cookingTime: 20,
     isSaved: true,
   ),
   Recipe(
-    title: 'Fried potatoes',
+    title: 'Salad',
     imageUrl:
-        'https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbGlmZW9mcGl4MDAwMDEtaW1hZ2VfMS1renhsdXd3ci5wbmc.png',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg',
     cookingTime: 20,
     isSaved: true,
   ),
   Recipe(
-    title: 'Fried potatoes',
+    title: 'Rice & boiled eggs',
     imageUrl:
-        'https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbGlmZW9mcGl4MDAwMDEtaW1hZ2VfMS1renhsdXd3ci5wbmc.png',
+        'https://challengedairy.com/wp-content/uploads/recipe_egg_masala_1.jpg',
     cookingTime: 20,
     isSaved: true,
   ),
-  Recipe(
-    title: 'Fried potatoes',
-    imageUrl:
-        'https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbGlmZW9mcGl4MDAwMDEtaW1hZ2VfMS1renhsdXd3ci5wbmc.png',
-    cookingTime: 20,
-    isSaved: true,
-  ),
-  Recipe(
-    title: 'Fried potatoes',
-    imageUrl:
-        'https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbGlmZW9mcGl4MDAwMDEtaW1hZ2VfMS1renhsdXd3ci5wbmc.png',
-    cookingTime: 20,
-    isSaved: true,
-  ),
-  // Recipe(
-  //   title: 'Grilled Chicken',
-  //   imageUrl:
-  //       'https://example.com/grilled_chicken.jpg',
-  //   cookingTime: 35,
-  //   isSaved: false,
-  // ),
-  // Recipe(
-  //   title: 'Caesar Salad',
-  //   imageUrl:
-  //       'https://example.com/caesar_salad.jpg',
-  //   cookingTime: 15,
-  //   isSaved: true,
-  // ),
-  // Recipe(
-  //   title: 'Pasta Bolognese',
-  //   imageUrl:
-  //       'https://example.com/pasta_bolognese.jpg',
-  //   cookingTime: 45,
-  //   isSaved: false,
-  // ),
 ];

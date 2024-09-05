@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/views/components/appbar.dart';
+import 'package:recipe/views/components/heading.dart';
+import 'package:recipe/views/components/sub_heading.dart';
 import '../../core/constant/recipe_list.dart';
 import '../components/chip.dart';
 import '../components/recipe_card.dart';
 import '../components/search_box_component.dart';
 import '../components/sizebox.dart';
-import 'recipie_description_screen.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -21,16 +22,17 @@ class SearchScreen extends StatelessWidget {
             children: [
               const Align(
                 alignment: Alignment.topLeft,
-                child: Text(
-                  "Discover the best recipes!",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-                ),
+                child: Heading(heading: "Discover the best recipes!"),
               ),
               const SizeboxGap(),
               const SearchBoxComponent(
                 hintText: "Search recipes",
               ),
               const SizeboxGap(),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: SubHeading(title: "Recent searches"),
+              ),
               SizedBox(
                 height: 60,
                 child: ListView(
@@ -53,20 +55,10 @@ class SearchScreen extends StatelessWidget {
                   crossAxisCount: 2, // Two items per row
                   crossAxisSpacing: 8.0, // Spacing between items horizontally
                   mainAxisSpacing: 8.0, // Spacing between items vertically
-                  childAspectRatio: 0.75, // Aspect ratio for each item
+                  childAspectRatio: 0.75, // Aspect ratio for each itemxd
                 ),
                 itemBuilder: (context, index) {
-                  return GestureDetector(
-                    child: RecipeCard(recipe: recipes[index]),
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const RecipieDescriptionScreen(),
-                        ),
-                      );
-                    },
-                  );
+                  return RecipeCard(recipe: recipes[index]);
                 },
               ),
             ],

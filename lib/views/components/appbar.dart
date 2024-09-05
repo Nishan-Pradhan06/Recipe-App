@@ -6,6 +6,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       shape: const Border(
         bottom: BorderSide(
           color: Color.fromARGB(137, 158, 158, 158),
