@@ -17,7 +17,7 @@ class RecipeCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       elevation: 4,
-      margin:const  EdgeInsets.symmetric(vertical: 8.0),
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -25,7 +25,7 @@ class RecipeCard extends StatelessWidget {
             borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
             child: Image.network(
               recipe.imageUrl,
-              height: 120,
+              height: 115,
               width: double.infinity,
               fit: BoxFit.cover,
             ),
@@ -47,20 +47,24 @@ class RecipeCard extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                       const Icon(Icons.access_time, size: 16),
-                       const SizedBox(width: 4),
+                        const Icon(Icons.access_time, size: 16),
+                        const SizedBox(width: 4),
                         Text('${recipe.cookingTime} min'),
                       ],
                     ),
                     Row(
                       children: [
-                        Icon(
-                          recipe.isSaved
-                              ? Icons.bookmark
-                              : Icons.bookmark_border,
+                        IconButton(
+                          onPressed: () {
+                            debugPrint('clicked');
+                          },
                           color: recipe.isSaved ? Colors.orange : Colors.grey,
+                          icon: Icon(
+                            recipe.isSaved
+                                ? Icons.bookmark
+                                : Icons.bookmark_border,
+                          ),
                         ),
-                       const  SizedBox(width: 4),
                         Text(
                           recipe.isSaved ? 'Saved' : '',
                           style: TextStyle(
