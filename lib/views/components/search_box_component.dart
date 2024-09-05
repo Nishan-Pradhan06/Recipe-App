@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SearchBoxComponent extends StatelessWidget {
-  const SearchBoxComponent({super.key});
+  final String hintText;
+  const SearchBoxComponent({
+    super.key,
+    required this.hintText,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +15,7 @@ class SearchBoxComponent extends StatelessWidget {
         border: const OutlineInputBorder(
           borderSide: BorderSide(color: Color.fromARGB(162, 158, 158, 158)),
         ),
-        hintText: "I'm looking for?",
+        hintText: hintText,
         suffixIcon: Padding(
           padding: const EdgeInsets.all(4.0),
           child: SvgPicture.asset(

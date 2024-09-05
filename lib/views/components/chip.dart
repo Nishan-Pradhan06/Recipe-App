@@ -4,6 +4,7 @@ import 'package:recipe/core/theme/colors.dart';
 import 'package:recipe/providers/chip_tap_providers.dart';
 
 final List<String> chipTitles = [
+  'All',
   'Breakfast',
   'Lunch',
   'Dinner',
