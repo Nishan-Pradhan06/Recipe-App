@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/views/components/appbar.dart';
-
 import '../../core/constant/recipe_list.dart';
 import '../components/chip.dart';
 import '../components/recipe_card.dart';
@@ -38,7 +37,7 @@ class SearchScreen extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   children: chipTitles.map((title) {
                     return Padding(
-                      padding: const EdgeInsets.only(right: 10.0),
+                      padding: const EdgeInsets.only(right: 8.0),
                       child: ChipComponents(
                         title: title,
                       ),

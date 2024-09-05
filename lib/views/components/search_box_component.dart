@@ -10,16 +10,29 @@ class SearchBoxComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        border: const OutlineInputBorder(
-          borderSide: BorderSide(color: Color.fromARGB(162, 158, 158, 158)),
-        ),
-        hintText: hintText,
-        suffixIcon: Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: SvgPicture.asset(
-            'assets/icons/search.svg',
+    return SizedBox(
+      height: 46,
+      child: TextFormField(
+        decoration: InputDecoration(
+          isDense: true,
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 10, horizontal: 18),
+          border: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+          enabledBorder: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Color(0xffe0e0e0)),
+          ),
+          hintText: hintText,
+          hintStyle: TextStyle(
+            color: Colors.black.withOpacity(0.4),
+          ),
+          suffixIcon: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: SvgPicture.asset(
+              'assets/icons/search.svg',
+            ),
           ),
         ),
       ),
