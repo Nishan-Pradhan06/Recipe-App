@@ -5,7 +5,6 @@ import 'package:recipe/views/components/recipe_card.dart';
 import 'package:recipe/views/components/search_box_component.dart';
 import 'package:recipe/views/components/textbutton.dart';
 import 'package:recipe/views/screen/recipe_description_screen.dart';
-import '../../models/card_models.dart';
 import '../components/chip.dart';
 import '../components/heading.dart';
 import '../components/sizebox.dart';
