@@ -11,9 +11,13 @@ class CardACtionButtonComponent extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Icon(Icons.access_time, size: 16),
-        const SizedBox(width: 4),
-        Text('${recipe.cookingTime} min'),
+        Row(
+          children: [
+            const Icon(Icons.access_time, size: 16),
+            const SizedBox(width: 4),
+            Text('${recipe.cookingTime} min'),
+          ],
+        ),
         const SizedBox(
           width: 20,
         ),
@@ -27,10 +31,9 @@ class CardACtionButtonComponent extends StatelessWidget {
             ),
           ),
           child: GestureDetector(
-            onTap: () {
-              print('clicked');
-            },
+            onTap: () {},
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SvgPicture.asset(
                   'assets/icons/saved.svg',

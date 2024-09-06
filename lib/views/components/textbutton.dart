@@ -57,7 +57,9 @@ class TextButtonReverse extends StatelessWidget {
               color: Colors.orange,
             ),
           ),
-          onTap: () {},
+          onTap: () {
+              Navigator.pop(context);
+          },
         ),
       ],
     );

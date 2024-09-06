@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recipe/views/components/appbar.dart';
 import 'package:recipe/views/components/heading.dart';
 import 'package:recipe/views/components/sub_heading.dart';
+import 'package:recipe/views/screen/recipe_description_screen.dart';
 import '../../core/constant/recipe_list.dart';
 import '../components/chip.dart';
 import '../components/recipe_card.dart';
@@ -47,20 +48,33 @@ class SearchScreen extends StatelessWidget {
                   }).toList(),
                 ),
               ),
+              const SizeboxGap(),
               GridView.builder(
                 itemCount: recipes.length,
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, // Two items per row
-                  crossAxisSpacing: 8.0, // Spacing between items horizontally
-                  mainAxisSpacing: 8.0, // Spacing between items vertically
-                  childAspectRatio: 0.75, // Aspect ratio for each itemxd
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 30.0,
+                  mainAxisSpacing: 26.0,
+                  childAspectRatio: 0.70,
                 ),
                 itemBuilder: (context, index) {
-                  return RecipeCard(recipe: recipes[index]);
+                  final recipe = recipes[index];
+                  return GestureDetector(
+                    child: RecipeCard(
+                      recipe: recipe,
+                    ),
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const RecipeDescriptionScreen(),
+                        ),
+                      );
+                    },
+                  );
                 },
-              ),
+              )
             ],
           ),
         ),

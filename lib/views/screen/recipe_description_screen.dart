@@ -46,9 +46,7 @@ class RecipeDescriptionScreen extends StatelessWidget {
                 Row(
                   children: [
                     IconButton(
-                      onPressed: () {
-                        debugPrint('clicked');
-                      },
+                      onPressed: () {},
                       color: Colors.orange, // Hardcoded color for saved state
                       icon: const Icon(Icons.bookmark),
                     ),

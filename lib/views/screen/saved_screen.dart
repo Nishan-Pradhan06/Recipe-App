@@ -48,14 +48,17 @@ class SavedScreen extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, // Two items per row
-                  crossAxisSpacing: 8.0, // Spacing between items horizontally
-                  mainAxisSpacing: 8.0, // Spacing between items vertically
-                  childAspectRatio: 0.75, // Aspect ratio for each item
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 30.0,
+                  mainAxisSpacing: 26.0,
+                  childAspectRatio: 0.70,
                 ),
                 itemBuilder: (context, index) {
+                  final recipe = recipes[index];
                   return GestureDetector(
-                    child: RecipeCard(recipe: recipes[index]),
+                    child: RecipeCard(
+                      recipe: recipe,
+                    ),
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
@@ -65,7 +68,7 @@ class SavedScreen extends StatelessWidget {
                     },
                   );
                 },
-              ),
+              )
             ],
           ),
         ),

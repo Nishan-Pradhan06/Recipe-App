@@ -36,11 +36,4 @@ final List<Recipe> recipes = [
     cookingTime: 20,
     isSaved: true,
   ),
-  Recipe(
-    title: 'Rice & boiled eggs',
-    imageUrl:
-        'https://challengedairy.com/wp-content/uploads/recipe_egg_masala_1.jpg',
-    cookingTime: 20,
-    isSaved: true,
-  ),
 ];

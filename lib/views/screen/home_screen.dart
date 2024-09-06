@@ -4,6 +4,8 @@ import 'package:recipe/views/components/appbar.dart';
 import 'package:recipe/views/components/recipe_card.dart';
 import 'package:recipe/views/components/search_box_component.dart';
 import 'package:recipe/views/components/textbutton.dart';
+import 'package:recipe/views/screen/recipe_description_screen.dart';
+import '../../models/card_models.dart';
 import '../components/chip.dart';
 import '../components/heading.dart';
 import '../components/sizebox.dart';
@@ -18,31 +20,54 @@ class HomeScreen extends StatelessWidget {
       appBar: const CustomAppBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 20),
+          padding: const EdgeInsets.only(left: 26, top: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Heading(heading: "Let's get cooking!"),
               const SizeboxGap(),
-              const SearchBoxComponent(hintText: "I'm looking for?"),
+              const Padding(
+                padding: EdgeInsets.only(right: 26),
+                child: SearchBoxComponent(hintText: "I'm looking for?"),
+              ),
               const SizeboxGap(),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SubHeading(title: "Recently viewed"),
-                  Textbutton(text: "See all", icon: Icons.arrow_forward),
-                ],
+              const Padding(
+                padding: EdgeInsets.only(right: 26),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SubHeading(title: "Recently viewed"),
+                    Textbutton(text: "See all", icon: Icons.arrow_forward),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 10,
               ),
               SizedBox(
-                height: 216,
+                height: 210,
                 child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: recipes.length,
-                  itemBuilder: (context, index) {
-                    final recipe = recipes[index];
-                    return RecipeCard(recipe: recipe);
-                  },
-                ),
+                    itemCount: recipes.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      final recipe = recipes[index];
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                        child: GestureDetector(
+                          child: RecipeCard(
+                            recipe: recipe,
+                          ),
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const RecipeDescriptionScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                    }),
               ),
               const SizeboxGap(),
               const SubHeading(title: "Category"),
@@ -61,15 +86,29 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 216,
+                height: 210,
                 child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: recipes.length,
-                  itemBuilder: (context, index) {
-                    final recipe = recipes[index];
-                    return RecipeCard(recipe: recipe);
-                  },
-                ),
+                    itemCount: recipes.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      final recipe = recipes[index];
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                        child: GestureDetector(
+                          child: RecipeCard(
+                            recipe: recipe,
+                          ),
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const RecipeDescriptionScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                    }),
               ),
             ],
           ),
