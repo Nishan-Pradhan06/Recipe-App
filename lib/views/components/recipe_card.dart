@@ -35,6 +35,9 @@ class RecipeCard extends StatelessWidget {
           height: 10,
         ),
         CardText(title: recipe.title),
+        const SizedBox(
+          height: 6,
+        ),
         CardACtionButtonComponent(recipe: recipe)
       ],
     );
