@@ -6,6 +6,7 @@ This project is a **Recipe App** developed as a challenge from [Kodaschool](http
 
 ### Screenshots
 ![App Screenshot](https://github.com/Nishan-Pradhan06/Recipe-App/blob/main/assets/banner.png)
+![App Screenshot](https://github.com/Nishan-Pradhan06/Recipe-App/blob/main/assets/banner2.png)
 
 
 ## Setup Instructions
