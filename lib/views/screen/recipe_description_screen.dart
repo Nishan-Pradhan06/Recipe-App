@@ -27,7 +27,7 @@ class RecipeDescriptionScreen extends StatelessWidget {
                   borderRadius: const BorderRadius.all(Radius.circular(20)),
                   color: Colors.amber,
                   image: DecorationImage(
-                    image: NetworkImage(
+                    image: AssetImage(
                       recipe.imageUrl,
                     ),
                     fit: BoxFit.cover,

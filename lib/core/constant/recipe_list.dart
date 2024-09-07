@@ -4,7 +4,7 @@ final List<Recipe> recipes = [
   Recipe(
     title: 'Chicken burger',
     imageUrl:
-        'https://www.chicken.ca/wp-content/uploads/2013/05/Moist-Chicken-Burgers-1180x580.jpg',
+        'assets/img/chiken_burger.jpg',
     cookingTime: 20,
     ingredients: [
       '1 pound ground chicken',
@@ -27,7 +27,7 @@ final List<Recipe> recipes = [
   Recipe(
     title: 'Waffles',
     imageUrl:
-        'https://www.sunset.com/wp-content/uploads/4_3_horizontal_inbody_900x506/brown-sugar-cornmeal-waffles-60141.jpg',
+        'assets/img/waffles.jpg',
     cookingTime: 20,
     ingredients: [
       '1 cup flour',
@@ -51,7 +51,7 @@ final List<Recipe> recipes = [
   Recipe(
     title: 'Grilled beef meat',
     imageUrl:
-        'https://nebraskastarbeef.com/wp-content/uploads/2022/09/52913995_m-scaled.jpg',
+        'assets/img/grilled_beef.jpg',
     cookingTime: 20,
     ingredients: [
       '1 pound beef steak',
@@ -72,7 +72,7 @@ final List<Recipe> recipes = [
   Recipe(
     title: 'Fried potatoes',
     imageUrl:
-        'https://images.squarespace-cdn.com/content/v1/624fa63d5ba99559345806e6/6f2ae64d-e4f9-497f-92b1-9a31a33f9186/EG9_EP37_Olive-Oil-Fried-Potatoes.jpg',
+        'assets/img/fried_potatoes.jpg',
     cookingTime: 20,
     ingredients: [
       '4 large potatoes',
@@ -92,7 +92,7 @@ final List<Recipe> recipes = [
   Recipe(
     title: 'Salad',
     imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Salad_platter.jpg/1200px-Salad_platter.jpg',
+        'assets/img/salad.jpg',
     cookingTime: 20,
     ingredients: [
       '2 cups mixed greens',

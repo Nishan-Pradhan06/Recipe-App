@@ -33,6 +33,7 @@ flutter:
   assets:
     - assets/logo/
     - assets/icons/
+    - assets/img/
 
   fonts:
     - family: DMSans
