@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         title: 'Recipe App',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          fontFamily: 'DMSans',
           useMaterial3: true,
         ),
         home: const SplashScreen(),

@@ -20,20 +20,20 @@ class CardActionButtonComponent extends StatelessWidget {
             Text('${recipe.cookingTime} min'),
           ],
         ),
-        const SizedBox(width: 20),
+        const SizedBox(width: 10),
         GestureDetector(
           onTap: () {
             Provider.of<RecipeSavedProvider>(context, listen: false)
                 .toggleSaved(recipe);
           },
           child: Padding(
-            padding: const EdgeInsets.only(right: 10),
+            padding: const EdgeInsets.only(right: 4),
             child: Consumer<RecipeSavedProvider>(
               builder: (context, savedProvider, child) {
                 bool isSaved = savedProvider.isSaved(recipe);
                 return Container(
                   height: 24,
-                  width: 60,
+                  width: 66,
                   decoration: BoxDecoration(
                     color: isSaved ? AppColor.primary : Colors.grey,
                     borderRadius: BorderRadius.circular(4),

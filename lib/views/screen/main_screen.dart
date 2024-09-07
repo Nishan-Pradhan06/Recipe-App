@@ -18,7 +18,7 @@ class _MainScreenState extends State<MainScreen> {
         return Scaffold(
           body: provider.screens[provider.currentIndex],
           bottomNavigationBar:
-              const BottomNavigatorBarComponent(), // Use your component here
+              const BottomNavigatorBarComponent(),
         );
       },
     );
