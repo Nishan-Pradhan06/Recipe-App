@@ -3,27 +3,15 @@ import 'package:recipe/models/card_models.dart';
 import 'package:recipe/views/components/appbar.dart';
 import 'package:recipe/views/components/card_action_button_component.dart';
 import 'package:recipe/views/components/sizebox.dart';
-import 'package:recipe/views/components/sub_heading.dart';
+import '../components/bottom_navigator_bar.dart';
 import '../components/textbutton.dart';
 
-final List<String> ingredients = [
-  '1 pound ground chicken',
-  '1/4 cup breadcrumbs',
-  '1/4 cup finely chopped onion',
-  '2 cloves garlic, minced',
-  '1 teaspoon ground coriander',
-  '1/2 teaspoon ground cumin',
-  'Salt and pepper, to taste',
-  '4 hamburger buns',
-];
-
 class RecipeDescriptionScreen extends StatelessWidget {
-  
-  const RecipeDescriptionScreen({super.key, required Recipe recipe});
+  final Recipe recipe;
+  const RecipeDescriptionScreen({super.key, required this.recipe});
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: const CustomAppBar(),
       body: Padding(
@@ -34,17 +22,41 @@ class RecipeDescriptionScreen extends StatelessWidget {
             const SizeboxGap(),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Image.network(
-                  'https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbGlmZW9mcGl4MDAwMDEtaW1hZ2VfMS1renhsdXd3ci5wbmc.png'),
+              child: Container(
+                height: 200,
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(20)),
+                  color: Colors.amber,
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      recipe.imageUrl,
+                    ),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
             ),
-            const SubHeading(title: 'Delicious Chicken Burger'),
-           CardActionButtonComponent(recipe: recipe),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              recipe.title,
+              style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            CardActionButtonComponent(recipe: recipe),
+            const SizeboxGap(),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.0),
               child: Text(
                 "Ingredients:",
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -53,10 +65,61 @@ class RecipeDescriptionScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: ingredients.map((title) {
+                children: recipe.ingredients.map((ingredient) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 4.0),
-                    child: Text("- $title"),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          '• ',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        Expanded(
+                          child: Text(
+                            ingredient,
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+            const SizeboxGap(),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.0),
+              child: Text(
+                "Procedure:",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: recipe.procedure.map((step) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 4.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          '• ',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        Expanded(
+                          child: Text(
+                            step,
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                        ),
+                      ],
+                    ),
                   );
                 }).toList(),
               ),
@@ -64,7 +127,7 @@ class RecipeDescriptionScreen extends StatelessWidget {
           ],
         ),
       ),
-      // bottomNavigationBar: const BottomNavigatorBarComponent(),
+      bottomNavigationBar: const BottomNavigatorBarComponent(),
     );
   }
 }
