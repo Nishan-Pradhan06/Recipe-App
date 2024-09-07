@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipe/models/card_models.dart';
 import 'package:recipe/views/components/appbar.dart';
+import 'package:recipe/views/components/card_action_button_component.dart';
 import 'package:recipe/views/components/sizebox.dart';
 import 'package:recipe/views/components/sub_heading.dart';
 import '../components/textbutton.dart';
@@ -17,10 +18,12 @@ final List<String> ingredients = [
 ];
 
 class RecipeDescriptionScreen extends StatelessWidget {
+  
   const RecipeDescriptionScreen({super.key, required Recipe recipe});
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: const CustomAppBar(),
       body: Padding(
@@ -35,32 +38,7 @@ class RecipeDescriptionScreen extends StatelessWidget {
                   'https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbGlmZW9mcGl4MDAwMDEtaW1hZ2VfMS1renhsdXd3ci5wbmc.png'),
             ),
             const SubHeading(title: 'Delicious Chicken Burger'),
-            Row(
-              children: [
-                const Row(
-                  children: [
-                    Icon(Icons.access_time, size: 16),
-                    SizedBox(width: 4),
-                    Text('30 min'), // Hardcoded cooking time
-                  ],
-                ),
-                Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      color: Colors.orange, // Hardcoded color for saved state
-                      icon: const Icon(Icons.bookmark),
-                    ),
-                    const Text(
-                      'Saved',
-                      style: TextStyle(
-                        color: Colors.orange, // Hardcoded color for saved state
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+           CardActionButtonComponent(recipe: recipe),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.0),
               child: Text(
