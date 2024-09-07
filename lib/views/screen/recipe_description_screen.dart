@@ -3,7 +3,6 @@ import 'package:recipe/models/card_models.dart';
 import 'package:recipe/views/components/appbar.dart';
 import 'package:recipe/views/components/card_action_button_component.dart';
 import 'package:recipe/views/components/sizebox.dart';
-import '../components/bottom_navigator_bar.dart';
 import '../components/textbutton.dart';
 
 class RecipeDescriptionScreen extends StatelessWidget {
@@ -127,7 +126,6 @@ class RecipeDescriptionScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const BottomNavigatorBarComponent(),
     );
   }
 }
