@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:recipe/views/components/appbar.dart';
 import 'package:recipe/views/screen/recipe_description_screen.dart';
-import '../../core/constant/recipe_list.dart';
-import '../components/chip.dart';
-import '../components/heading.dart';
+import 'package:recipe/providers/recipe_saved_provider.dart';
+import '../components/card_action_button_component.dart';
 import '../components/recipe_card.dart';
+import '../components/heading.dart';
 import '../components/sizebox.dart';
 import '../components/sub_heading.dart';
+import '../components/chip.dart';
 
 class SavedScreen extends StatelessWidget {
   const SavedScreen({super.key});
@@ -43,27 +45,53 @@ class SavedScreen extends StatelessWidget {
                   }).toList(),
                 ),
               ),
-              GridView.builder(
-                itemCount: recipes.length,
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 30.0,
-                  mainAxisSpacing: 26.0,
-                  childAspectRatio: 0.70,
-                ),
-                itemBuilder: (context, index) {
-                  final recipe = recipes[index];
-                  return GestureDetector(
-                    child: RecipeCard(
-                      recipe: recipe,
-                    ),
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const RecipeDescriptionScreen(),
+              // Accessing the saved recipes
+              Consumer<RecipeSavedProvider>(
+                builder: (context, savedProvider, child) {
+                  final savedRecipes = savedProvider.savedRecipe;
+
+                  if (savedRecipes.isEmpty) {
+                    return const Center(
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 200),
+                        child: Text(
+                          'No recipes saved yet',
+                          style: TextStyle(
+                            fontSize: 26,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
+                      ),
+                    );
+                  }
+                  return GridView.builder(
+                    itemCount: savedRecipes.length,
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 30.0,
+                      mainAxisSpacing: 26.0,
+                      childAspectRatio: 0.70,
+                    ),
+                    itemBuilder: (context, index) {
+                      final recipe = savedRecipes[index];
+                      return GestureDetector(
+                        child: RecipeCard(
+                          recipe: recipe,
+                          actionButton:
+                              CardActionButtonComponent(recipe: recipe),
+                        ),
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => RecipeDescriptionScreen(
+                                recipe: recipe,
+                              ),
+                            ),
+                          );
+                        },
                       );
                     },
                   );

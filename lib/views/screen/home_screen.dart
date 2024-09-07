@@ -5,6 +5,7 @@ import 'package:recipe/views/components/recipe_card.dart';
 import 'package:recipe/views/components/search_box_component.dart';
 import 'package:recipe/views/components/textbutton.dart';
 import 'package:recipe/views/screen/recipe_description_screen.dart';
+import '../components/card_action_button_component.dart';
 import '../components/chip.dart';
 import '../components/heading.dart';
 import '../components/sizebox.dart';
@@ -46,27 +47,32 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 210,
                 child: ListView.builder(
-                    itemCount: recipes.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      final recipe = recipes[index];
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 20),
-                        child: GestureDetector(
-                          child: RecipeCard(
-                            recipe: recipe,
-                          ),
-                          onTap: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const RecipeDescriptionScreen(),
-                              ),
-                            );
-                          },
+                  itemCount: recipes.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    final recipe = recipes[index];
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: GestureDetector(
+                        child: RecipeCard(
+                          recipe: recipe,
+                          actionButton: CardActionButtonComponent(
+                              recipe:
+                                  recipe), // Use the action button component
                         ),
-                      );
-                    }),
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => RecipeDescriptionScreen(
+                                  recipe:
+                                      recipe), // Pass the recipe to the next screen
+                            ),
+                          );
+                        },
+                      ),
+                    );
+                  },
+                ),
               ),
               const SizeboxGap(),
               const SubHeading(title: "Category"),
@@ -96,12 +102,16 @@ class HomeScreen extends StatelessWidget {
                         child: GestureDetector(
                           child: RecipeCard(
                             recipe: recipe,
+                            actionButton: CardActionButtonComponent(
+                                recipe:
+                                    recipe), // Use the action button component
                           ),
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    const RecipeDescriptionScreen(),
+                                builder: (context) => RecipeDescriptionScreen(
+                                  recipe: recipe,
+                                ),
                               ),
                             );
                           },

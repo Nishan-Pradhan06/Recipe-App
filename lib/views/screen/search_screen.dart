@@ -4,6 +4,7 @@ import 'package:recipe/views/components/heading.dart';
 import 'package:recipe/views/components/sub_heading.dart';
 import 'package:recipe/views/screen/recipe_description_screen.dart';
 import '../../core/constant/recipe_list.dart';
+import '../components/card_action_button_component.dart';
 import '../components/chip.dart';
 import '../components/recipe_card.dart';
 import '../components/search_box_component.dart';
@@ -64,11 +65,12 @@ class SearchScreen extends StatelessWidget {
                   return GestureDetector(
                     child: RecipeCard(
                       recipe: recipe,
+                      actionButton: CardActionButtonComponent(recipe: recipe),
                     ),
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => const RecipeDescriptionScreen(),
+                          builder: (context) => RecipeDescriptionScreen(recipe: recipe,),
                         ),
                       );
                     },

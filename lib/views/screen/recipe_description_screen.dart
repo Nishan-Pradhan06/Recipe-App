@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe/models/card_models.dart';
 import 'package:recipe/views/components/appbar.dart';
 import 'package:recipe/views/components/sizebox.dart';
 import 'package:recipe/views/components/sub_heading.dart';
@@ -16,7 +17,7 @@ final List<String> ingredients = [
 ];
 
 class RecipeDescriptionScreen extends StatelessWidget {
-  const RecipeDescriptionScreen({super.key});
+  const RecipeDescriptionScreen({super.key, required Recipe recipe});
 
   @override
   Widget build(BuildContext context) {

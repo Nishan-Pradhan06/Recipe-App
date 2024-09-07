@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe/providers/chip_tap_providers.dart';
+import 'package:recipe/providers/recipe_saved_provider.dart';
 import 'package:recipe/views/screen/splash_screen.dart';
 import 'providers/bottom_navigator_providers.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ChipTapProviders()),
         ChangeNotifierProvider(create: (_) => BottomNavigatorProviders()),
+        ChangeNotifierProvider(create: (_) => RecipeSavedProvider()),
       ],
       child: MaterialApp(
         title: 'Recipe App',

@@ -7,7 +7,7 @@ class RecipeCard extends StatelessWidget {
   final Recipe recipe;
   const RecipeCard({
     super.key,
-    required this.recipe,
+    required this.recipe, required CardActionButtonComponent actionButton,
   });
 
   @override
@@ -39,9 +39,7 @@ class RecipeCard extends StatelessWidget {
           const SizedBox(
             height: 6,
           ),
-          CardACtionButtonComponent(
-            recipe: recipe,
-          ),
+         CardActionButtonComponent(recipe: recipe),
         ],
       ),
     );

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
+import 'package:recipe/core/theme/colors.dart';
 import 'package:recipe/models/card_models.dart';
+import 'package:recipe/providers/recipe_saved_provider.dart';
 
-class CardACtionButtonComponent extends StatelessWidget {
+class CardActionButtonComponent extends StatelessWidget {
   final Recipe recipe;
-  const CardACtionButtonComponent({super.key, required this.recipe});
+  const CardActionButtonComponent({super.key, required this.recipe});
 
   @override
   Widget build(BuildContext context) {
@@ -18,29 +21,46 @@ class CardACtionButtonComponent extends StatelessWidget {
             Text('${recipe.cookingTime} min'),
           ],
         ),
-        const SizedBox(
-          width: 20,
-        ),
-        Container(
-          height: 24,
-          width: 60,
-          decoration: const BoxDecoration(
-            color: Color(0xffe0e0e0),
-            borderRadius: BorderRadius.all(
-              Radius.circular(4),
-            ),
-          ),
-          child: GestureDetector(
-            onTap: () {},
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SvgPicture.asset(
-                  'assets/icons/saved.svg',
-                  height: 18,
-                ),
-                const Text("Save"),
-              ],
+        const SizedBox(width: 20),
+        GestureDetector(
+          onTap: () {
+            Provider.of<RecipeSavedProvider>(context, listen: false)
+                .toggleSaved(recipe);
+          },
+          child: Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: Consumer<RecipeSavedProvider>(
+              builder: (context, savedProvider, child) {
+                bool isSaved = savedProvider.isSaved(recipe);
+                return Container(
+                  height: 24,
+                  width: 60,
+                  decoration: BoxDecoration(
+                    color: isSaved ? AppColor.primary : Colors.grey,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        'assets/icons/saved1.svg',
+                        colorFilter: const ColorFilter.mode(
+                          Colors.white,
+                          BlendMode.srcIn,
+                        ),
+                        height: 18,
+                      ),
+                      const SizedBox(width: 4),
+                      const Text(
+                        "Save",
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
             ),
           ),
         ),
